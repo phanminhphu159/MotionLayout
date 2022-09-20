@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto">
+
+    <Transition
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@id/start"
+        motion:duration="2000">
+        <OnSwipe motion:touchAnchorId="@+id/ivRedStar"
+            motion:dragDirection="dragAnticlockwise"/>
+        <KeyFrameSet>
+            <KeyAttribute
+                android:rotation="-360"
+                motion:framePosition="50"
+                motion:motionTarget="@id/ivRedStar">
+                <CustomAttribute
+                    motion:attributeName="colorFilter"
+                    motion:customColorValue="#FFB612" />
+            </KeyAttribute>
+            <KeyAttribute
+                android:rotation="720"
+                motion:framePosition="100"
+                motion:motionTarget="@id/ivRedStar" >
+                <CustomAttribute
+                    motion:attributeName="colorFilter"
+                    motion:customColorValue="@color/white" />
+            </KeyAttribute>
+            <KeyPosition
+                motion:framePosition="50"
+                motion:keyPositionType="parentRelative"
+                motion:motionTarget="@id/ivRedStar"
+                motion:percentY="0.9" />
+        </KeyFrameSet>
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/ivRedStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent" />
+    </ConstraintSet>
+
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/ivRedStar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            motion:layout_constraintTop_toTopOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent" />
+    </ConstraintSet>
+
+</MotionScene>
